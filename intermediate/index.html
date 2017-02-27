@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <title>Health spending</title>
+
+  <!-- CSS dependencies -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- Our stylesheet -->
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+
+<body class="">
+  <div id="header">
+    <img src="img/wsj-logo.png" />
+    <img src="img/dmn-logo.png" />
+  </div>
+
+
+  <div id="main-wrapper" class="">
+      <div id="main-content" class="container">
+          <header class="row">
+              <div class="social-links col-md-12"></div>
+              <div class="col-md-12">
+                  <h1>Healthcare spending</h1>
+                  <p>A simple scatterplot created with D3.js. Check out the repo <a href="https://github.com/dallasmorningnews/nicar-d3-2017">here</a>.</p>
+                  <div class="meta">By <a href="https://twitter.com/ccanipe">Chris Canipe</a> and <a href="https://twitter.com/JonRMcClure">Jon McClure</a></div>
+                  <div class="meta">Published March 2, 2017</div>
+              </div>
+          </header>
+
+          <section class="row">
+          <div class="col-md-12 chart">
+            <!-- This is where we'll draw our svg and chart elements -->
+            <div id="placeholder">Your chart here.</div>
+          </div>
+          </section>
+
+          <footer>
+              <div id="source-line" class="meta">Source: Organisation for Economic Co-operation and Development</div>
+              <div id="note" class="meta">Note: All data is from 2014 except Brazil GDP (2013) and Canada Life Expectancy (2012).</div>
+          </footer>
+
+      </div>
+  </div>
+
+
+  <!-- JavaScript dependencies -->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js" charset="utf-8"></script>
+
+  <!-- Our chart script -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>
