@@ -8,12 +8,12 @@ Taught by:
 - [Travis Hartman](https://twitter.com/travmaga), Reuters
 
 
-### [Basic d3.js](basic/notes.md)
-2:15 - 3:15 p.m.
+### Basic d3.js
+2:15 - 3:15 p.m., City Terrace 8
 
-City Terrace 8
+[Notes](basic/notes.md)
 
-### [Intermediate d3.js](intermediate/notes.md)
-3:30 - 4:30 p.m.
+### Intermediate d3.js
+3:30 - 4:30 p.m., City Terrace 8
 
-City Terrace 8
+[Notes](intermediate/notes.md)
