@@ -32,9 +32,9 @@ $ python -m SimpleHTTPServer
 Python 3.x
 
 ```
-python -m http.server
+$ python -m http.server
 ```
 
-**Good to go!**
+You're good to go! Open your browser to [localhost:8000](http://localhost:8000/).
 
 ---
