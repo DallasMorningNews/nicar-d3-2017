@@ -67,7 +67,7 @@ var margin = {
       top: 20,
       right: 60,
       bottom: 30,
-      left: 100
+      left: 40
     },
     width = 600 - margin.left - margin.right,
     height = 450 - margin.top - margin.bottom;
@@ -137,10 +137,126 @@ d3.csv('data/oecd_health_data.csv', function(error, data) {
 });
 ```
 
+**Important:** We'll write the rest of the code for this session _inside_ this callback.
+
 ### Preparing your data
 ```js
 data.forEach(function(d){
   d.x = +d['gdp_spending_2014'];
   d.y = +d['life_exp_2014'];
 });
+```
+
+### Finish setting scales
+
+Now that we have our data, we can set the domains on our scales.
+
+```js
+x.domain(
+    d3.extent(data, function(d) { return d.x; })
+).nice();
+
+y.domain(
+    d3.extent(data, function(d) { return d.y; })
+).nice();
+```
+
+`d3.extent` returns an array of the min and max values of your data.
+
+## Part 3: DRAW!
+
+### Draw our axes
+
+```js
+svg.append("g")
+  .attr("class", "x axis")
+  // Translate is an SVG property that helps us move the X axis below the chart.
+  .attr("transform", "translate(0," + height + ")")
+  .call(xAxis)
+.append("text")
+  .attr("class", "label")
+  .attr("x", width) // width represents the farthest point right on our chart
+  .attr("y", -6)
+  .style("text-anchor", "end") // Anchoring the text to the end lets us flow it left from that end point.
+  .text("GDP health spending");
+
+//Append the y axis to the chart.
+svg.append("g")
+  .attr("class", "y axis")
+  .call(yAxis)
+.append("text")
+  .attr("class", "label")
+  .attr("transform", "rotate(-90)") // Rotate is another SVG property.
+  .attr("y", 6)
+  .attr("dy", ".71em")
+  .style("text-anchor", "end")
+  .text("Life expectancy");
+```
+
+### Draw data elements
+
+```js
+svg.selectAll('circle')
+    .data(data)
+  .enter().append('circle')
+    .attr('r', 4)
+    .attr('cx', function(d){return x(d.x);})
+    .attr('cy', function(d){return y(d.y);});
+```
+
+Let's break that down:
+
+##### Join data to elements
+
+```js
+svg.selectAll('circle')
+    .data(data)
+```
+![](notes/img/join.png)
+
+##### Create elements
+
+```js
+    .enter().append('circle')
+```
+
+##### Set SVG attributes
+
+Attributes for SVG [circle](https://www.w3schools.com/graphics/svg_circle.asp).
+
+```js
+    .attr('r', 4)
+    .attr('cx', function(d){return x(d.x);})
+    .attr('cy', function(d){return y(d.y);});
+```
+
+
+
+### Add some labels
+
+```js
+svg.selectAll('.tip')
+    .data(data)
+  .enter().append('text')
+    .attr('class', 'tip')
+    .attr('x', function(d){return x(d.x) + 5;})
+    .attr('y', function(d){return y(d.y) + 5;})
+    .text(function(d){ return d.cou; });
+```
+
+### Filter those down
+
+```js
+var tipsData = data.filter(function(d){
+  var tips = ['USA', 'RUS', 'GBR', 'DEU', 'CHN'];
+  return tips.indexOf(d.cou) >= 0;
+});
+```
+
+Change your data source for tips!
+
+```js
+svg.selectAll('.tip')
+  .data(tipsData)
+  //...
 ```

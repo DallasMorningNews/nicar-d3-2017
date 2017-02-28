@@ -37,6 +37,20 @@ h1, h2, h3{
 .byline,.meta{
   font-size: 11px;
 }
+
+/*Chart styles*/
+
 .chart{
   margin: 10px 0;
+}
+
+.chart .label{
+    fill:#666;
+    font-size: 10px;
+}
+
+.chart circle{
+    stroke:rgb(50, 156, 235);
+    stroke-width:2px;
+    fill:transparent;
 }
