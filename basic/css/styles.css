@@ -32,6 +32,8 @@ h1, h2, h3{
   line-height: 400px;
   text-align: center;
   color:white;
+  position: absolute;
+  display: none;
 }
 
 .byline,.meta{
@@ -42,15 +44,21 @@ h1, h2, h3{
 
 .chart{
   margin: 10px 0;
+  position: relative;
+  width: 600px;
+  height: 400px;
 }
 
-.chart .label{
-    fill:#666;
-    font-size: 10px;
+.axis-label {
+  font-size: 12px;
 }
 
 .chart circle{
     stroke:rgb(50, 156, 235);
     stroke-width:2px;
     fill:transparent;
+}
+
+.dot.USA {
+  stroke: rgb(204,0,0);
 }

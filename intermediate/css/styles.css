@@ -32,11 +32,38 @@ h1, h2, h3{
   line-height: 400px;
   text-align: center;
   color:white;
+  position: absolute;
+  display: none;
 }
 
 .byline,.meta{
   font-size: 11px;
 }
+
+/*Chart styles*/
+
+.nav .btn-group {
+  margin: 15px 0 0 15px;
+}
+
+
 .chart{
   margin: 10px 0;
+  position: relative;
+  width: 600px;
+  height: 400px;
+}
+
+.axis-label {
+  font-size: 12px;
+}
+
+.chart circle{
+    stroke:rgb(50, 156, 235);
+    stroke-width:2px;
+    fill:transparent;
+}
+
+.dot.USA {
+  stroke: rgb(204,0,0);
 }
